@@ -15,7 +15,7 @@ public class TerningeKast {
         terning2.kast();
         System.out.println("Terning 1: " + terning1 + " Terning 2: " + terning2);
 
-        sum = terning1.getAntalØjne() + terning2.getAntalØjne();
+        sum = terning1.getAntalOjne() + terning2.getAntalOjne();
         System.out.println("Sum: " + sum);
 
         sum = terning1.kast() + terning2.kast();
