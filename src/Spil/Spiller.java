@@ -16,7 +16,7 @@ public class Spiller {
         return samletScore;
     }
 
-    void  setSamletScore(int score){
+    void  setAddScore(int score){
         samletScore += score;
     }
 
