@@ -1,10 +1,9 @@
 package Spil;
 
 public class TerningeKast {
-    public static void main (String[] args)
-    {
-        // Opretter et objekt til terningekast og ruller dem
 
+    public static void main (String[] args){
+        // Opretter et objekt til terningekast og ruller dem
         Terning terning1, terning2;
         int sum;
 
@@ -17,6 +16,8 @@ public class TerningeKast {
 
         sum = terning1.getAntalOjne() + terning2.getAntalOjne();
         System.out.println("Sum: " + sum);
+
+
 
 
     }
