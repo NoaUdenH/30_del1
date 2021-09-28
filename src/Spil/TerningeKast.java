@@ -3,7 +3,7 @@ package Spil;
 public class TerningeKast {
     public static void main (String[] args)
     {
-        // Opretter et objekt til terningekast og ruller dem 2 gange lige nu
+        // Opretter et objekt til terningekast og ruller dem
 
         Terning terning1, terning2;
         int sum;
