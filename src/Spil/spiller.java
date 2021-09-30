@@ -1,3 +1,4 @@
+package Spil;
 public class spiller {
     private final String name;
     private int totalScore;
