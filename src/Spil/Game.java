@@ -12,9 +12,9 @@ public class Game {
         System.out.println();
         System.out.println("(1) Start et nyt spil");
         System.out.println("(2) Spil en runde");
-        System.out.println("(3) Who is leading now?");
+        System.out.println("(3) Hvem fører??");
         System.out.println("(4) Afslut spil");
-        System.out.print("Vælg en option: ");
+        System.out.print("Vælg en mulighed: ");
     }
 
     void selectGameOption(int optionSelected) {
@@ -39,9 +39,9 @@ public class Game {
         String P2Navn;
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Indtast venligst først spillerens navn: ");
+        System.out.print("Indtast venligst først spillers navn: ");
         P1Navn = sc.nextLine();
-        System.out.print("Indtast venligst anden spillerens navn: ");
+        System.out.print("Indtast venligst anden spillers navn: ");
         P2Navn = sc.nextLine();
 
 
@@ -80,19 +80,19 @@ public class Game {
 
     void whoIsLeading() {
         if (P1.getTotalScore() == P2.getTotalScore()) {
-            System.out.format("Its currently a draw, "
-                            + "%s has %d, %s has %d",
+            System.out.format("Det står lige, "
+                            + "%s har %d, %s har %d",
                     P1.getName(), P1.getTotalScore(),
                     P2.getName(), P2.getTotalScore()
             );
         } else if (P1.getTotalScore() > P2.getTotalScore()) {
-            System.out.printf("%s is leading, %s has %d points, "
-                            + "%s has %d points",
+            System.out.printf("%s fører, %s har %d point, "
+                            + "%s har %d point",
                     P1.getName(), P1.getName(), P1.getTotalScore(),
                     P2.getName(), P2.getTotalScore());
         } else if (P1.getTotalScore() < P2.getTotalScore()) {
-            System.out.format("%s is leading, %s has %d points, "
-                            + "%s has %d points.",
+            System.out.format("%s fører, %s har %d point, "
+                            + "%s har %d point.",
                     P2.getName(), P2.getName(), P2.getTotalScore(),
                     P1.getName(), P1.getTotalScore()
             );
@@ -114,7 +114,7 @@ public class Game {
     }
 
     public static void main(String[] args) {
-        System.out.println("Welcome to the Dice and Roll game!");
+        System.out.println("Velkommen til terningespillet!");
 
         Game game = new Game();
 
@@ -128,12 +128,12 @@ public class Game {
 
             while (optionSelected > 4 || optionSelected < 0) {
 
-                System.out.print("Option entered invalid, please enter a number from 1 to 5: ");
+                System.out.print("Mulighed ikke tilgængelig. Indtast veligst et tal mellem 1 og 5: ");
                 optionSelected = sc.nextInt();
             }
 
             if (optionSelected == 4) {
-                System.out.println("Exiting Spill");
+                System.out.println("Afslutter Spil");
                 break;
             }
 
