@@ -1,30 +1,28 @@
 package Spil;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Game {
 
 
-    private spiller P1;
-    private spiller P2;
+    private player P1;
+    private player P2;
     private Dice dice;
-    private int ScoreForAtVinde = 40;
+    private int scoreToWin = 40;
 
     void displayGameMenu() {
         System.out.println();
-        System.out.println("(1) Start et nyt spil");
-        System.out.println("(2) Spil en runde");
-        System.out.println("(3) Hvem fører?");
-        System.out.println("(4) Test 1000 kast");
-        System.out.println("(5) Afslut spil");
-        System.out.print("Vælg en mulighed: ");
+        System.out.println("(1) Start new game");
+        System.out.println("(2) Play a round");
+        System.out.println("(3) Who's in the lead??");
+        System.out.println("(4) Test 1000 dice throws");
+        System.out.println("(5) End game");
+        System.out.print("Choose an option: ");
     }
 
     void selectGameOption(int optionSelected) {
         switch (optionSelected) {
             case 1:
-                this.VisSpilInstruktion();
+                this.showGameOptions();
                 break;
             case 2:
                 this.playOneRound(P1);
@@ -40,23 +38,23 @@ public class Game {
         }
     }
 
-    void VisSpilInstruktion() {
-        String P1Navn;
-        String P2Navn;
+    void showGameOptions() {
+        String P1Name;
+        String P2Name;
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Indtast venligst først spillerens navn: ");
-        P1Navn = sc.nextLine();
-        System.out.print("Indtast venligst anden spillerens navn: ");
-        P2Navn = sc.nextLine();
+        System.out.print("Please enter the name of the first player: ");
+        P1Name = sc.nextLine();
+        System.out.print("Please enter the name of the second player: ");
+        P2Name = sc.nextLine();
 
 
-        P1 = new spiller(P1Navn);
-        P2 = new spiller(P2Navn);
+        P1 = new player(P1Name);
+        P2 = new player(P2Name);
         dice = new Dice();
     }
 
-    void test(spiller n) {
+    void test(player n) {
 
 
         for (int i = 0; i < 1000; i++) {
@@ -72,32 +70,12 @@ public class Game {
     }
 
 
-    void playOneRound(spiller p) {
+    void playOneRound(player p) {
         int result;
 
-        int FørsteTerningKast = dice.rollDice();
-        int AndenTerningKast = dice.rollDice();
+        int firstDiceThrow = dice.rollDice();
+        int secondDiceThrow = dice.rollDice();
 
-
-        if (FørsteTerningKast == AndenTerningKast) {
-            result = (FørsteTerningKast + AndenTerningKast) * 2;
-            p.setTotalScore(result);
-            System.out.printf("%s rolled %d and %d, "
-                            + "and scored %d points(BONUS DOUBLE POINTS), "
-                            + "for a total of %d points",
-                    p.getName(), FørsteTerningKast, AndenTerningKast,
-                    result, p.getTotalScore()
-            );
-        } else {
-            result = (FørsteTerningKast + AndenTerningKast);
-            p.setTotalScore(result);
-            System.out.printf("%s rolled %d and %d, "
-                            + "and scored %d points, "
-                            + "for a total of %d points",
-                    p.getName(), FørsteTerningKast, AndenTerningKast,
-                    result, p.getTotalScore()
-            );
-        }
 
         System.out.println();
     }
@@ -123,15 +101,15 @@ public class Game {
         }
     }
 
-    boolean TjekHvisNogenHarVndet() {
-        if (P1.getTotalScore() >= ScoreForAtVinde && P2.getTotalScore() >= ScoreForAtVinde) {
-            System.out.println("Det er uafgjort! Begge spillere har overskredet scoregrænsen");
+    boolean checkIfSomeoneHasWon() {
+        if (P1.getTotalScore() >= scoreToWin && P2.getTotalScore() >= scoreToWin) {
+            System.out.println("It's a draw! Both players have exceeded the scoreline");
             return true;
-        } else if (P1.getTotalScore() >= ScoreForAtVinde && P2.getTotalScore() < ScoreForAtVinde) {
-            System.out.format("%s vandt", P1.getName());
+        } else if (P1.getTotalScore() >= scoreToWin && P2.getTotalScore() < scoreToWin) {
+            System.out.format("%s won", P1.getName());
             return true;
-        } else if (P1.getTotalScore() < ScoreForAtVinde && P2.getTotalScore() >= ScoreForAtVinde) {
-            System.out.format("%s vandt", P2.getName());
+        } else if (P1.getTotalScore() < scoreToWin && P2.getTotalScore() >= scoreToWin) {
+            System.out.format("%s won", P2.getName());
             return true;
         }
         return false;
@@ -157,16 +135,16 @@ public class Game {
             }
 
             if (optionSelected == 5) {
-                System.out.println("Exiting Spill");
+                System.out.println("Exiting Game");
                 break;
             }
 
             game.selectGameOption(optionSelected);
 
-            boolean anyoneWin = game.TjekHvisNogenHarVndet();
+            boolean anyoneWin = game.checkIfSomeoneHasWon();
             if (anyoneWin) {
                 System.out.println();
-                System.out.println("Spillet sluttede .");
+                System.out.println("Game is over");
                 break;
             }
         }

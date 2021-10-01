@@ -7,7 +7,7 @@ public class Test {
         Die die2 = new Die();
         int sum = 0;
 
-        //sikre at der ligger en værdi (rent dobbelt sikkerhed)
+        //makes sure we have a value for our dice
         die1.roll();
         die2.roll();
 
@@ -57,7 +57,7 @@ public class Test {
                     break;
             }
         }
-            // print antallet af hver kombination af øjne
+            // Print number of eyes for each combination
         System.out.println(n2);
         System.out.println(n3);
         System.out.println(n4);
