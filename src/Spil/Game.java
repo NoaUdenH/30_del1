@@ -76,6 +76,14 @@ public class Game {
         int firstDiceThrow = dice.rollDice();
         int secondDiceThrow = dice.rollDice();
 
+        result = (firstDiceThrow + secondDiceThrow);
+        p.setTotalScore(result);
+        System.out.printf("%s rolled %d and %d, "
+                        + "and scored %d points, "
+                        + "for a total of %d points",
+                p.getName(), firstDiceThrow, secondDiceThrow,
+                result, p.getTotalScore()
+        );
 
         System.out.println();
     }
