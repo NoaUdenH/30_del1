@@ -1,5 +1,7 @@
 package Spil;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Game {
 
@@ -13,9 +15,10 @@ public class Game {
         System.out.println();
         System.out.println("(1) Start et nyt spil");
         System.out.println("(2) Spil en runde");
-        System.out.println("(3) Hvem fører??");
-        System.out.println("(4) Afslut spil");
-        System.out.print("Vælg en mulighed: ");
+        System.out.println("(3) Hvem fører?");
+        System.out.println("(4) test");
+        System.out.println("(5) Afslut spil");
+        System.out.print("Vælg en option: ");
     }
 
     void selectGameOption(int optionSelected) {
@@ -30,6 +33,8 @@ public class Game {
             case 3:
                 this.whoIsLeading();
                 break;
+            case 4:
+                this.test(P1);
             default:
                 break;
         }
@@ -40,9 +45,9 @@ public class Game {
         String P2Navn;
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Indtast venligst først spillers navn: ");
+        System.out.print("Indtast venligst først spillerens navn: ");
         P1Navn = sc.nextLine();
-        System.out.print("Indtast venligst anden spillers navn: ");
+        System.out.print("Indtast venligst anden spillerens navn: ");
         P2Navn = sc.nextLine();
 
 
@@ -51,11 +56,83 @@ public class Game {
         dice = new Dice();
     }
 
+    void test(spiller n) {
+
+
+        for (int i = 0; i < 1000; i++) {
+
+
+            int gen = dice.rollDice();
+            int gen1 = dice.rollDice();
+            n.getTotalScore();
+            int result = Integer.sum(gen, gen1);
+            System.out.println(i + "=" + Integer.sum(gen, gen1));
+
+           /* int[] numbers = new int[1000];
+            for (int d = 0; d < 1000; d++) {
+                numbers[d] = result;
+                System.out.println(d + "=" + Arrays.toString(numbers));
+            }
+
+*/
+        }
+         /*   System.out.println(i + "=" + Integer.sum(gen, gen1));
+            System.out.println(result);
+*/
+
+           /* for (int d = 0; d < 1000; d++) {
+                numbers[d] = result;
+                System.out.println(d + "=" + Arrays.toString(numbers));
+            }
+
+            // System.out.println(i + "=" + Integer.sum(gen, gen1));
+
+*/
+
+
+
+
+
+
+           /*
+             System.out.println(numbers.length);
+            System.out.println(Arrays.toString(numbers));
+            for (int k = 0; k < numbers.length; ) {
+                int key = numbers[k];
+                int counter = 0;
+                for (int j = k; j < numbers.length; j++) {
+                    if (key == numbers[j]) {
+                        counter++;
+                    } else {
+                        k = j;
+                        break;
+                    }
+                    if (counter >= 1) {
+                        System.out.println(key + ":" + counter + "gange");
+                    }
+
+
+
+
+*/
+
+                /*
+                 System.out.println(result);
+
+             System.out.println(Arrays.toString(numbers));Arrays.sort(thirteenMultiples);
+                System.out.println(thirteenMultiples.length);
+                System.out.println(i + "=" + thirteenMultiples.length);
+*/
+    }
+
+
     void playOneRound(spiller p) {
         int result;
 
         int FørsteTerningKast = dice.rollDice();
         int AndenTerningKast = dice.rollDice();
+
+
         if (FørsteTerningKast == AndenTerningKast) {
             result = (FørsteTerningKast + AndenTerningKast) * 2;
             p.setTotalScore(result);
@@ -81,19 +158,19 @@ public class Game {
 
     void whoIsLeading() {
         if (P1.getTotalScore() == P2.getTotalScore()) {
-            System.out.format("Det står lige, "
-                            + "%s har %d, %s har %d",
+            System.out.format("Its currently a draw, "
+                            + "%s has %d, %s has %d",
                     P1.getName(), P1.getTotalScore(),
                     P2.getName(), P2.getTotalScore()
             );
         } else if (P1.getTotalScore() > P2.getTotalScore()) {
-            System.out.printf("%s fører, %s har %d point, "
-                            + "%s har %d point",
+            System.out.printf("%s is leading, %s has %d points, "
+                            + "%s has %d points",
                     P1.getName(), P1.getName(), P1.getTotalScore(),
                     P2.getName(), P2.getTotalScore());
         } else if (P1.getTotalScore() < P2.getTotalScore()) {
-            System.out.format("%s fører, %s har %d point, "
-                            + "%s har %d point.",
+            System.out.format("%s is leading, %s has %d points, "
+                            + "%s has %d points.",
                     P2.getName(), P2.getName(), P2.getTotalScore(),
                     P1.getName(), P1.getTotalScore()
             );
@@ -115,7 +192,7 @@ public class Game {
     }
 
     public static void main(String[] args) {
-        System.out.println("Velkommen til terningespillet!");
+        System.out.println("Welcome to the Dice and Roll game!");
 
         Game game = new Game();
 
@@ -127,14 +204,14 @@ public class Game {
             Scanner sc = new Scanner(System.in);
             optionSelected = sc.nextInt();
 
-            while (optionSelected > 4 || optionSelected < 0) {
+            while (optionSelected > 5 || optionSelected < 0) {
 
-                System.out.print("Mulighed ikke tilgængelig. Indtast veligst et tal mellem 1 og 5: ");
+                System.out.print("Option entered invalid, please enter a number from 1 to 5: ");
                 optionSelected = sc.nextInt();
             }
 
-            if (optionSelected == 4) {
-                System.out.println("Afslutter Spil");
+            if (optionSelected == 5) {
+                System.out.println("Exiting Spill");
                 break;
             }
 
