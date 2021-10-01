@@ -16,9 +16,9 @@ public class Game {
         System.out.println("(1) Start et nyt spil");
         System.out.println("(2) Spil en runde");
         System.out.println("(3) Hvem fører?");
-        System.out.println("(4) test");
+        System.out.println("(4) Test 1000 kast");
         System.out.println("(5) Afslut spil");
-        System.out.print("Vælg en option: ");
+        System.out.print("Vælg en mulighed: ");
     }
 
     void selectGameOption(int optionSelected) {
