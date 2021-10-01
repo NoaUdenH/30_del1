@@ -68,61 +68,7 @@ public class Game {
             int result = Integer.sum(gen, gen1);
             System.out.println(i + "=" + Integer.sum(gen, gen1));
 
-           /* int[] numbers = new int[1000];
-            for (int d = 0; d < 1000; d++) {
-                numbers[d] = result;
-                System.out.println(d + "=" + Arrays.toString(numbers));
-            }
-
-*/
         }
-         /*   System.out.println(i + "=" + Integer.sum(gen, gen1));
-            System.out.println(result);
-*/
-
-           /* for (int d = 0; d < 1000; d++) {
-                numbers[d] = result;
-                System.out.println(d + "=" + Arrays.toString(numbers));
-            }
-
-            // System.out.println(i + "=" + Integer.sum(gen, gen1));
-
-*/
-
-
-
-
-
-
-           /*
-             System.out.println(numbers.length);
-            System.out.println(Arrays.toString(numbers));
-            for (int k = 0; k < numbers.length; ) {
-                int key = numbers[k];
-                int counter = 0;
-                for (int j = k; j < numbers.length; j++) {
-                    if (key == numbers[j]) {
-                        counter++;
-                    } else {
-                        k = j;
-                        break;
-                    }
-                    if (counter >= 1) {
-                        System.out.println(key + ":" + counter + "gange");
-                    }
-
-
-
-
-*/
-
-                /*
-                 System.out.println(result);
-
-             System.out.println(Arrays.toString(numbers));Arrays.sort(thirteenMultiples);
-                System.out.println(thirteenMultiples.length);
-                System.out.println(i + "=" + thirteenMultiples.length);
-*/
     }
 
 
